@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::put('/tasks/{task}/toggle', 'TasksController@toggle')->name('tasks.toggle');
+Route::resource('/tasks', 'TasksController');
